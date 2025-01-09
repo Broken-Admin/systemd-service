@@ -1,0 +1,10 @@
+[Unit]
+Description=Example systemd service unit file
+
+[Service]
+# The script to run
+ExecStart=/bin/bash /usr/sbin/example.sh
+
+[Install]
+# This will not function in the graphical.target desktop environment
+WantedBy=multi-user.target
