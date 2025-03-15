@@ -1,0 +1,14 @@
+[Unit]
+Description=Send a message in Discord to notify the owner that the system is ready
+# Ensure that the server is actually ready for SSH at this
+# point
+# ssh.service is used because it directly references rather than sshd
+After=ssh.service
+
+[Service]
+# The script to run to call the webhook
+ExecStart=/bin/bash /usr/sbin/discord-webhook.sh
+
+[Install]
+# This will not function in the graphical.target desktop environment
+WantedBy=multi-user.target
